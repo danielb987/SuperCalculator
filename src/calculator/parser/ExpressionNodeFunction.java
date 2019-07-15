@@ -20,7 +20,9 @@ public class ExpressionNodeFunction implements ExpressionNode {
     
     
     static {
+		System.out.println("aaa");
         for (FunctionFactory actionFactory : ServiceLoader.load(FunctionFactory.class)) {
+			System.out.println("bbb");
             actionFactory.getFunctions().forEach((function) -> {
                 if (functions.containsKey(function.getName())) {
                     throw new RuntimeException("Function " + function.getName() + " is already registered. Class: " + function.getClass().getName());

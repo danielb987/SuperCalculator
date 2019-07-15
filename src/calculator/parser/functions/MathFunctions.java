@@ -11,16 +11,19 @@ import calculator.parser.FunctionFactory;
 import calculator.parser.ParserException;
 import calculator.parser.WrongNumberOfParametersException;
 import calculator.util.TypeConversionUtil;
+import org.openide.util.lookup.ServiceProvider;
 
 /**
  * Implementation of mathematical functions.
  * 
  * @author Daniel Bergqvist 2019
  */
+@ServiceProvider(service = FunctionFactory.class)
 public class MathFunctions implements FunctionFactory {
 
     @Override
     public Set<Function> getFunctions() {
+		if (1==1) throw new RuntimeException("Hej");
         Set<Function> functionClasses = new HashSet<>();
         functionClasses.add(new IntFunction());
         functionClasses.add(new RandomFunction());
